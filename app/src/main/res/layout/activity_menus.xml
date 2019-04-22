@@ -4,14 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".Menus">
 
     <LinearLayout
-        android:layout_width="366dp"
-        android:layout_height="489dp"
+        android:layout_width="377dp"
+        android:layout_height="419dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="5dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="16dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,10 +29,10 @@
                 android:layout_width="141dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Pasta" />
 
             <LinearLayout
-                android:layout_width="130dp"
+                android:layout_width="92dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="horizontal"></LinearLayout>
@@ -36,7 +42,7 @@
                 android:layout_width="141dp"
                 android:layout_height="156dp"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Ensaladas" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,10 +55,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="149dp"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Hamburgesa" />
 
             <LinearLayout
-                android:layout_width="84dp"
+                android:layout_width="71dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="horizontal"></LinearLayout>
@@ -62,32 +68,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="162dp"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="A la plancha" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="406dp"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="111dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"></LinearLayout>
-
-            <LinearLayout
-                android:layout_width="139dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="120dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Button" />
-            </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
