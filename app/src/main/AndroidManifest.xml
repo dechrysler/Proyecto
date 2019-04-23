@@ -19,7 +19,8 @@
         <activity android:name=".Menus" />
         <activity
             android:name=".Carta"
-            android:label="@string/title_activity_carta"></activity>
+            android:label="@string/title_activity_carta" />
+        <activity android:name=".ListarPlatos"></activity>
     </application>
 
 </manifest>
