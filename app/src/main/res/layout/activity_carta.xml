@@ -85,7 +85,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/btnEnsalada"
                 android:layout_width="100dp"
                 android:layout_height="142dp"
                 android:layout_weight="1"
