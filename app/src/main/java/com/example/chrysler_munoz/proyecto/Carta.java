@@ -22,7 +22,7 @@ public class Carta extends Activity implements View.OnClickListener {
             case R.id.btnEnsalada:
                 Intent intent = new Intent(this,ListarPlatos.class);
                 startActivity(intent);
-
+            break;
         }
     }
 }
