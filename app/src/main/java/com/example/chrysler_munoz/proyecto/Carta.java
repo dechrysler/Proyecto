@@ -33,6 +33,9 @@ public class Carta extends Activity implements View.OnClickListener {
 
         Button btnAlaPlancha = findViewById(R.id.btnAlaPlancha);
         btnAlaPlancha.setOnClickListener(this);
+
+        Button btnCompra = findViewById(R.id.btnComprar);
+        btnCompra.setEnabled(false);
     }
 
     @Override

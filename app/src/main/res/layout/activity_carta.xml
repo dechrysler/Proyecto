@@ -206,8 +206,8 @@
                     android:orientation="vertical"></LinearLayout>
 
                 <Button
-                    android:id="@+id/button7"
-                    android:layout_width="7dp"
+                    android:id="@+id/btnComprar"
+                    android:layout_width="2dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@mipmap/verde" />
@@ -220,7 +220,7 @@
 
                 <Button
                     android:id="@+id/button11"
-                    android:layout_width="4dp"
+                    android:layout_width="1dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@mipmap/rojo" />
