@@ -17,24 +17,30 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.example.chrysler_munoz.proyecto.MainActivity.alaplancha;
+import static com.example.chrysler_munoz.proyecto.MainActivity.bebida;
 import static com.example.chrysler_munoz.proyecto.MainActivity.ensaladas;
+import static com.example.chrysler_munoz.proyecto.MainActivity.entrante;
 import static com.example.chrysler_munoz.proyecto.MainActivity.hamburguesa;
 import static com.example.chrysler_munoz.proyecto.MainActivity.pasta;
+import static com.example.chrysler_munoz.proyecto.MainActivity.postre;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     public static List<Plato>ensaladas= new ArrayList<>();
     public static List<Plato>pasta= new ArrayList<>();
     public static List<Plato>hamburguesa= new ArrayList<>();
+    public static List<Plato>entrante= new ArrayList<>();
+    public static List<Plato>alaplancha= new ArrayList<>();
+    public static List<Plato>bebida= new ArrayList<>();
+    public static List<Plato>postre= new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button btnMenu  = findViewById(R.id.btnMenus);
-        btnMenu.setOnClickListener(this);
-        Button btnSueltos  = findViewById(R.id.btnProductos);
         CargarDatos carga = new CargarDatos();
         carga.execute();
-        btnSueltos.setOnClickListener(this);
+        Button btnCarta = findViewById(R.id.btnArticulos);
+        btnCarta.setOnClickListener(this);
     }
 
     @Override
@@ -45,12 +51,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 intent = new Intent(this,Menus.class);
                 startActivity(intent);
                 break;
-            case R.id.btnProductos:
+            case R.id.btnArticulos:
                 intent = new Intent(this,Carta.class);
                 startActivity(intent);
                 break;
-                default:
-                    return;
+            default:
+                return;
 
         }
     }
@@ -65,6 +71,10 @@ class CargarDatos extends AsyncTask<String, Integer, Void> {
         Ensaladas();
         Pasta();
         Hamburguesa();
+        AlaPlancha();
+        Bebida();
+        Postre();
+        Entrante();
         return null;
     }
     public void Ensaladas(){
@@ -93,5 +103,42 @@ class CargarDatos extends AsyncTask<String, Integer, Void> {
         evnts.addAll(Arrays.asList(opinionesArray));
         hamburguesa.clear();
         hamburguesa.addAll(evnts);
+    }
+    public void Entrante(){
+        evnts.clear();
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+        Plato[] opinionesArray = restTemplate.getForObject("http://10.0.2.2:8082" + "/platos_entrante", Plato[].class);
+        evnts.addAll(Arrays.asList(opinionesArray));
+        entrante.clear();
+        entrante.addAll(evnts);
+
+    }
+    public void AlaPlancha(){
+        evnts.clear();
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+        Plato[] opinionesArray = restTemplate.getForObject("http://10.0.2.2:8082" + "/platos_alaplancha", Plato[].class);
+        evnts.addAll(Arrays.asList(opinionesArray));
+        alaplancha.clear();
+        alaplancha.addAll(evnts);
+    }
+    public void Postre(){
+        evnts.clear();
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+        Plato[] opinionesArray = restTemplate.getForObject("http://10.0.2.2:8082" + "/platos_postre", Plato[].class);
+        evnts.addAll(Arrays.asList(opinionesArray));
+        postre.clear();
+        postre.addAll(evnts);
+    }
+    public void Bebida(){
+        evnts.clear();
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+        Plato[] opinionesArray = restTemplate.getForObject("http://10.0.2.2:8082" + "/platos_bebida", Plato[].class);
+        evnts.addAll(Arrays.asList(opinionesArray));
+        bebida.clear();
+        bebida.addAll(evnts);
     }
 }

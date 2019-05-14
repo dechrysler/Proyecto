@@ -19,7 +19,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <Button
-            android:id="@+id/button15"
+            android:id="@+id/btnBebidas"
             android:layout_width="90dp"
             android:layout_height="150dp"
             android:layout_weight="1"
@@ -43,7 +43,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/btnPostre"
             android:layout_width="90dp"
             android:layout_height="150dp"
             android:layout_weight="1"
