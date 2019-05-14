@@ -69,7 +69,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btnPasta"
                 android:layout_width="100dp"
                 android:layout_height="145dp"
                 android:layout_weight="1"
@@ -109,7 +109,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
         <Button
-            android:id="@+id/button12"
+            android:id="@+id/btnHamburguesa"
             android:layout_width="match_parent"
             android:layout_height="110dp"
             android:layout_weight="1"
@@ -132,7 +132,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/btnEntrante"
             android:layout_width="111dp"
             android:layout_height="150dp"
             android:layout_weight="1"
@@ -155,7 +155,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/btnAlaPlancha"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_weight="1"
