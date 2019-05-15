@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import static com.example.chrysler_munoz.proyecto.MainActivity.pedidos;
 
 public class Carta extends Activity implements View.OnClickListener {
 
@@ -34,8 +37,15 @@ public class Carta extends Activity implements View.OnClickListener {
         Button btnAlaPlancha = findViewById(R.id.btnAlaPlancha);
         btnAlaPlancha.setOnClickListener(this);
 
-        Button btnCompra = findViewById(R.id.btnComprar);
-        btnCompra.setEnabled(false);
+        Button btnCom = findViewById(R.id.btnComprar);
+        btnCom.setOnClickListener(this);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        TextView elementos  = findViewById(R.id.tvProductos);
+        elementos.setText("Productos:"+pedidos.size());
+
     }
 
     @Override
@@ -71,6 +81,13 @@ public class Carta extends Activity implements View.OnClickListener {
             case R.id.btnEntrante:
                 intent.putExtra("tipo",7);
                 startActivity(intent);
+                break;
+            case R.id.btnComprar:
+                if(pedidos.size()>0)
+                {
+                    Intent it = new Intent(this,Ordenar.class);
+                    startActivity(it);
+                }
                 break;
         }
     }
