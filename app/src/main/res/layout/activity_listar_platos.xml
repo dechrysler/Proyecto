@@ -62,7 +62,7 @@
                     android:orientation="vertical"></LinearLayout>
 
                 <Button
-                    android:id="@+id/button11"
+                    android:id="@+id/btnBorrarAll"
                     android:layout_width="4dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

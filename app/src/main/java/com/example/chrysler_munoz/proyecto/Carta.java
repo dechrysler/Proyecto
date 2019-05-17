@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static com.example.chrysler_munoz.proyecto.MainActivity.pedidos;
 
@@ -39,6 +40,9 @@ public class Carta extends Activity implements View.OnClickListener {
 
         Button btnCom = findViewById(R.id.btnComprar);
         btnCom.setOnClickListener(this);
+
+        Button btnBorrar = findViewById(R.id.btnBorrarAll);
+        btnBorrar.setOnClickListener(this);
     }
     @Override
     protected void onResume() {
@@ -87,6 +91,12 @@ public class Carta extends Activity implements View.OnClickListener {
                 {
                     Intent it = new Intent(this,Ordenar.class);
                     startActivity(it);
+                }
+                break;
+            case R.id.btnBorrarAll:
+                if(pedidos.size()>0)
+                {
+                    Toast.makeText(this,"Aqui probando funcionalidades",Toast.LENGTH_SHORT).show();
                 }
                 break;
         }

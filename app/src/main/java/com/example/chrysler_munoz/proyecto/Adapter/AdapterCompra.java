@@ -27,6 +27,7 @@ public class AdapterCompra  extends BaseAdapter{
     static class ViewHolder {
         TextView tvNombr;
         TextView tvPreci;
+        TextView tvCantidad;
     }
 
     @Override
@@ -39,6 +40,7 @@ public class AdapterCompra  extends BaseAdapter{
             holder = new ViewHolder();
             holder.tvNombr = convertView.findViewById(R.id.tvNom);
             holder.tvPreci = convertView.findViewById(R.id.tvPrec);
+            holder.tvCantidad=convertView.findViewById(R.id.tvCantidad);
             convertView.setTag(holder);
         }
         else {
@@ -49,6 +51,20 @@ public class AdapterCompra  extends BaseAdapter{
         Plato plato = platos.get(position);
         holder.tvNombr.setText(plato.getNombre());
         holder.tvPreci.setText(String.valueOf(plato.getPrecio()));
+        int x=0;
+        int cantidad=1;
+        for(Plato plat:platos)
+        {
+            if(plat.getId()==plato.getId())
+            {
+                if(position!=x) {
+                    cantidad++;
+                    platos.remove(x);
+                }
+            }
+            x++;
+        }
+        holder.tvCantidad.setText(""+cantidad);
         return convertView;
     }
 
