@@ -34,6 +34,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public static List<Plato>bebida= new ArrayList<>();
     public static List<Plato>postre= new ArrayList<>();
     public static List<Plato>pedidos= new ArrayList<>();
+    public static List<Plato> listado= new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +62,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         }
     }
+
+
 }
 class CargarDatos extends AsyncTask<String, Integer, Void> {
 

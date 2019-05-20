@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-
 import com.example.chrysler_munoz.proyecto.Base.Plato;
 import com.example.chrysler_munoz.proyecto.R;
 
@@ -17,12 +16,13 @@ public class AdapterCompra  extends BaseAdapter{
     private LayoutInflater inflater;
     private int idLayout;
     private List<Plato> platos;
-
-    public AdapterCompra(Context contexto, int idLayout, List<Plato> platos) {
+    private int[] numero ;
+    public AdapterCompra(Context contexto, int idLayout, List<Plato> platos,int[] count) {
 
         inflater = LayoutInflater.from(contexto);
         this.idLayout = idLayout;
         this.platos =platos;
+        numero=count;
     }
     static class ViewHolder {
         TextView tvNombr;
@@ -51,20 +51,8 @@ public class AdapterCompra  extends BaseAdapter{
         Plato plato = platos.get(position);
         holder.tvNombr.setText(plato.getNombre());
         holder.tvPreci.setText(String.valueOf(plato.getPrecio()));
-        int x=0;
-        int cantidad=1;
-        for(Plato plat:platos)
-        {
-            if(plat.getId()==plato.getId())
-            {
-                if(position!=x) {
-                    cantidad++;
-                    platos.remove(x);
-                }
-            }
-            x++;
-        }
-        holder.tvCantidad.setText(""+cantidad);
+
+        holder.tvCantidad.setText(""+(numero[position]+1));
         return convertView;
     }
 
