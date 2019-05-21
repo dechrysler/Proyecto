@@ -8,6 +8,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.chrysler_munoz.proyecto.Base.Plato;
+
+import java.util.List;
+
+import static com.example.chrysler_munoz.proyecto.MainActivity.listado;
 import static com.example.chrysler_munoz.proyecto.MainActivity.pedidos;
 
 public class Carta extends Activity implements View.OnClickListener {
@@ -41,7 +46,7 @@ public class Carta extends Activity implements View.OnClickListener {
         Button btnCom = findViewById(R.id.btnComprar);
         btnCom.setOnClickListener(this);
 
-        Button btnBorrar = findViewById(R.id.btnBorrarAll);
+        Button btnBorrar = findViewById(R.id.btnBorrar);
         btnBorrar.setOnClickListener(this);
     }
     @Override
@@ -89,16 +94,66 @@ public class Carta extends Activity implements View.OnClickListener {
             case R.id.btnComprar:
                 if(pedidos.size()>0)
                 {
-                    Intent it = new Intent(this,Ordenar.class);
-                    startActivity(it);
+                    Intent intent2 = new Intent(this,Ordenar.class);
+                    listado.clear();
+                    intent2.putExtra("lista", buscarRepetidos(pedidos));
+                    startActivity(intent2);
+
                 }
                 break;
-            case R.id.btnBorrarAll:
+            case R.id.btnBorrar:
                 if(pedidos.size()>0)
                 {
-                    Toast.makeText(this,"Aqui probando funcionalidades",Toast.LENGTH_SHORT).show();
+                    pedidos.clear();
+                    TextView elementos  = findViewById(R.id.tvProductos);
+                    elementos.setText("Productos:"+pedidos.size());
                 }
                 break;
         }
+    }
+
+    public int[] buscarRepetidos(List<Plato> plats) {
+        int pos = 0;
+        int x = pos+1;
+        int[] list = new int[plats.size()];
+        for (Plato plat: plats)
+            listado.add(plat);
+        for (int i = 0; i <= listado.size(); i++) {
+            x=0;
+            x=pos+1;
+            boolean hay = true;
+            while (x< listado.size() && hay == true) {
+                if (listado.get(pos).getId() == listado.get(x).getId()) {
+                    list[pos]++;
+                    listado.remove(x);
+                    hay = false;
+                }
+                x++;
+            }
+            if (hay == true)
+                pos=pos+1;
+
+
+        }
+        pos=0;
+        for (int i = 0; i <= listado.size(); i++) {
+            x=0;
+            x=pos+1;
+            boolean hay = true;
+            while (x< listado.size() && hay == true) {
+                if (listado.get(pos).getId() == listado.get(x).getId()) {
+                    list[pos]++;
+                    listado.remove(x);
+                    hay = false;
+                }
+                x++;
+            }
+            if (hay == true)
+                pos=pos+1;
+
+
+        }
+
+        return list;
     }
 }

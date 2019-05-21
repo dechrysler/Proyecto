@@ -39,7 +39,7 @@ public class Ordenar extends Activity implements View.OnClickListener, ListView.
        for(Plato plat: pedidos)
            i=i+plat.getPrecio();
         TextView total = findViewById(R.id.tvTotal);
-        total.setText(""+i);
+        total.setText(""+String.format("%.2f", i));
         ObtenerTamanio carga = new ObtenerTamanio();
         carga.execute();
         Button btnOrdenar = findViewById(R.id.btnOrdenar);
@@ -70,7 +70,7 @@ public class Ordenar extends Activity implements View.OnClickListener, ListView.
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Toast.makeText(this,String.valueOf(id),Toast.LENGTH_SHORT).show();
+
         }
 
 
@@ -94,7 +94,7 @@ public class Ordenar extends Activity implements View.OnClickListener, ListView.
             }
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-            restTemplate.getForObject("http://10.0.2.2:8082" + "/add_pedido?precioTotal=" +String.valueOf(i)
+            restTemplate.getForObject("http://192.168.34.34:8082" + "/add_pedido?precioTotal=" +String.valueOf(i)
                     +"&fecha=" + "ni" + "&preparado=" + "no" + "&lista="
                     + ids+ "&numero=" + String.valueOf(numeroPedido),Void.class);
             return null;
@@ -110,7 +110,7 @@ public class Ordenar extends Activity implements View.OnClickListener, ListView.
         protected Void doInBackground(String... strings) {
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-            Pedido[] platosArray = restTemplate.getForObject("http://10.0.2.2:8082" + "/pedidos", Pedido[].class);
+            Pedido[] platosArray = restTemplate.getForObject("http://192.168.34.34:8082" + "/pedidos", Pedido[].class);
             evnts.addAll(Arrays.asList(platosArray));
             numeroPedido=evnts.size()+1;
             return null;
