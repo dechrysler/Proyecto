@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.chrysler_munoz.proyecto.Base.Plato;
 import com.example.chrysler_munoz.proyecto.R;
@@ -32,7 +34,8 @@ public class AdapterCompra  extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-      ViewHolder holder = null;
+        View itemView = inflater.inflate(R.layout.producto_pago,parent,false);
+        ViewHolder holder = null;
 
         if (convertView == null) {
             convertView = inflater.inflate(idLayout, null);
@@ -53,6 +56,13 @@ public class AdapterCompra  extends BaseAdapter{
         holder.tvPreci.setText(String.valueOf(plato.getPrecio()));
 
         holder.tvCantidad.setText(""+(numero[position]+1));
+        Button btnQuitar = itemView.findViewById(R.id.btnQuitar);
+        btnQuitar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 Toast.makeText(view.getContext(),"presionó detalles",Toast.LENGTH_LONG).show();
+            }
+        });
         return convertView;
     }
 
