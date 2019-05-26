@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.chrysler_munoz.proyecto.Adapter.Adapter;
 import com.example.chrysler_munoz.proyecto.Base.Plato;
@@ -74,6 +75,7 @@ public class ListarPlatos extends Activity implements ListView.OnItemClickListen
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         pedidos.add((Plato) adapter.getItem(position));
          TextView tv = findViewById(R.id.tvProductos);
+        Toast.makeText(this,"prducto añadido",Toast.LENGTH_SHORT).show();
          tv.setText("Productos:"+pedidos.size());
     }
 

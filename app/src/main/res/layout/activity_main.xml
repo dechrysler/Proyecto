@@ -21,11 +21,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/btnMenus"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnPromociones"
+            android:layout_width="110dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Menus" />
+            android:text="Promociones" />
 
         <Button
             android:id="@+id/btnArticulos"

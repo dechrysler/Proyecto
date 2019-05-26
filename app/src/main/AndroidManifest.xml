@@ -7,12 +7,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/take"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ModificarArticulos">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".SplashScream">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,12 +26,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Menus" />
         <activity
             android:name=".Carta"
             android:label="@string/title_activity_carta" />
         <activity android:name=".ListarPlatos" />
         <activity android:name=".Ordenar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SplashCompra">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

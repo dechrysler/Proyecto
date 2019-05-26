@@ -2,6 +2,7 @@ package com.example.chrysler_munoz.proyecto;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -57,6 +58,8 @@ public class Ordenar extends Activity implements View.OnClickListener, ListView.
             case R.id.btnOrdenar:
                 HacerPedido carga = new HacerPedido();
                 carga.execute();
+                Intent intent = new Intent(this, SplashCompra.class);
+                startActivity(intent);
                 break;
             case R.id.btnCancelar:
                 pedidos.clear();
@@ -94,7 +97,7 @@ public class Ordenar extends Activity implements View.OnClickListener, ListView.
             }
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-            restTemplate.getForObject("http://192.168.34.34:8082" + "/add_pedido?precioTotal=" +String.valueOf(i)
+            restTemplate.getForObject("http://http://10.0.2.2:8082" + "/add_pedido?precioTotal=" +String.valueOf(i)
                     +"&fecha=" + "ni" + "&preparado=" + "no" + "&lista="
                     + ids+ "&numero=" + String.valueOf(numeroPedido),Void.class);
             return null;
@@ -110,7 +113,7 @@ public class Ordenar extends Activity implements View.OnClickListener, ListView.
         protected Void doInBackground(String... strings) {
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-            Pedido[] platosArray = restTemplate.getForObject("http://192.168.34.34:8082" + "/pedidos", Pedido[].class);
+            Pedido[] platosArray = restTemplate.getForObject("http://http://10.0.2.2:8082" + "/pedidos", Pedido[].class);
             evnts.addAll(Arrays.asList(platosArray));
             numeroPedido=evnts.size()+1;
             return null;

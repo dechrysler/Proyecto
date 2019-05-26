@@ -49,10 +49,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         Intent intent;
         switch(v.getId()){
-            case R.id.btnMenus:
-                intent = new Intent(this,Menus.class);
-                startActivity(intent);
-                break;
+
             case R.id.btnArticulos:
                 intent = new Intent(this,Carta.class);
                 startActivity(intent);
@@ -84,7 +81,7 @@ class CargarDatos extends AsyncTask<String, Integer, Void> {
     public void Ensaladas(){
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-        Plato[] opinionesArray = restTemplate.getForObject("http://192.168.34.34:8082" + "/platos_ensalada", Plato[].class);
+        Plato[] opinionesArray = restTemplate.getForObject("http://10.0.2.2:8082" + "/platos_ensalada", Plato[].class);
         evnts.addAll(Arrays.asList(opinionesArray));
         ensaladas.clear();
         ensaladas.addAll(evnts);
@@ -94,7 +91,7 @@ class CargarDatos extends AsyncTask<String, Integer, Void> {
         evnts.clear();
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-        Plato[] opinionesArray = restTemplate.getForObject("http://192.168.34.34:8082" + "/platos_pasta", Plato[].class);
+        Plato[] opinionesArray = restTemplate.getForObject("http://10.0.2.2:8082" + "/platos_pasta", Plato[].class);
         evnts.addAll(Arrays.asList(opinionesArray));
         pasta.clear();
         pasta.addAll(evnts);
@@ -103,7 +100,7 @@ class CargarDatos extends AsyncTask<String, Integer, Void> {
         evnts.clear();
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-        Plato[] opinionesArray = restTemplate.getForObject("http://192.168.34.34:8082" + "/platos_hamburguesa", Plato[].class);
+        Plato[] opinionesArray = restTemplate.getForObject("http://10.0.2.2:8082" + "/platos_hamburguesa", Plato[].class);
         evnts.addAll(Arrays.asList(opinionesArray));
         hamburguesa.clear();
         hamburguesa.addAll(evnts);
@@ -112,7 +109,7 @@ class CargarDatos extends AsyncTask<String, Integer, Void> {
         evnts.clear();
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-        Plato[] opinionesArray = restTemplate.getForObject("http://192.168.34.34:8082" + "/platos_entrante", Plato[].class);
+        Plato[] opinionesArray = restTemplate.getForObject("http://10.0.2.2:8082" + "/platos_entrante", Plato[].class);
         evnts.addAll(Arrays.asList(opinionesArray));
         entrante.clear();
         entrante.addAll(evnts);
@@ -122,7 +119,7 @@ class CargarDatos extends AsyncTask<String, Integer, Void> {
         evnts.clear();
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-        Plato[] opinionesArray = restTemplate.getForObject("http://192.168.34.34:8082" + "/platos_alaplancha", Plato[].class);
+        Plato[] opinionesArray = restTemplate.getForObject("http://10.0.2.2:8082" + "/platos_alaplancha", Plato[].class);
         evnts.addAll(Arrays.asList(opinionesArray));
         alaplancha.clear();
         alaplancha.addAll(evnts);
@@ -131,7 +128,7 @@ class CargarDatos extends AsyncTask<String, Integer, Void> {
         evnts.clear();
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-        Plato[] opinionesArray = restTemplate.getForObject("http://192.168.34.34:8082" + "/platos_postre", Plato[].class);
+        Plato[] opinionesArray = restTemplate.getForObject("http://10.0.2.2:8082" + "/platos_postre", Plato[].class);
         evnts.addAll(Arrays.asList(opinionesArray));
         postre.clear();
         postre.addAll(evnts);
@@ -140,7 +137,7 @@ class CargarDatos extends AsyncTask<String, Integer, Void> {
         evnts.clear();
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-        Plato[] opinionesArray = restTemplate.getForObject("http://192.168.34.34:8082" + "/platos_bebida", Plato[].class);
+        Plato[] opinionesArray = restTemplate.getForObject("http://10.0.2.2:8082" + "/platos_bebida", Plato[].class);
         evnts.addAll(Arrays.asList(opinionesArray));
         bebida.clear();
         bebida.addAll(evnts);
