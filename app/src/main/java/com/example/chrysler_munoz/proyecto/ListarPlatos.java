@@ -38,6 +38,8 @@ public class ListarPlatos extends Activity implements ListView.OnItemClickListen
         lvPlatos.setOnItemClickListener(this);
         Button btnOrdenar = findViewById(R.id.btnOrdenar);
         btnOrdenar.setOnClickListener(this);
+        Button btnEliminar = findViewById(R.id.btnBorrarAll);
+        btnEliminar.setOnClickListener(this);
         switch (ident){
             case 1:
                 adapter= new Adapter(this,R.layout.elemento,pasta);
@@ -70,6 +72,7 @@ public class ListarPlatos extends Activity implements ListView.OnItemClickListen
         super.onResume();
         TextView elementos  = findViewById(R.id.tvProductos);
         elementos.setText("Productos:"+pedidos.size());
+
     }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -81,12 +84,25 @@ public class ListarPlatos extends Activity implements ListView.OnItemClickListen
 
     @Override
     public void onClick(View v) {
-        if(pedidos.size()>0)
-        {
-            Intent intent = new Intent(this,Ordenar.class);
-            listado.clear();
-            intent.putExtra("lista", buscarRepetidos(pedidos));
-            startActivity(intent);
+
+            switch (v.getId()) {
+                case R.id.btnOrdenar:
+                    if(pedidos.size()>0)
+                    {
+                    Intent intent = new Intent(this, Ordenar.class);
+                    listado.clear();
+                    intent.putExtra("lista", buscarRepetidos(pedidos));
+                    startActivity(intent);
+                     break;
+                    }
+                case R.id.btnBorrarAll:
+                    if(pedidos.size()>0)
+                    {
+                        pedidos.clear();
+                        TextView elementos  = findViewById(R.id.tvProductos);
+                        elementos.setText("Productos:"+pedidos.size());
+                    }
+                    break;
 
         }
     }

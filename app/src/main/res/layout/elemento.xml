@@ -62,13 +62,13 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="15dp"
+                            android:layout_width="10dp"
                             android:layout_height="match_parent"
                             android:orientation="vertical"></LinearLayout>
 
                         <TextView
                             android:id="@+id/tvPrecio"
-                            android:layout_width="20dp"
+                            android:layout_width="25dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
